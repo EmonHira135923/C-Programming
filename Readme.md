@@ -1,19 +1,25 @@
 # 📘 Run C Programming
 
+> 🎯 Goal: Basic C Programming (Hello World, Escape Sequences, Variables) clearভাবে শিখা
+
+---
+
 ## 📁 Project Structure
 
-```
+```id="ps8x2a"
 Run C Programming/
  ├── hello.c
  ├── specialCharacter.c
+ ├── variable/
+ │    └── hello_variable.c
  └── README.md
 ```
 
 ---
 
-## 🧾 File: `hello.c`
+# 🧾 File: `hello.c`
 
-```c
+```c id="c1k9pz"
 #include <stdio.h>
 
 int main() {
@@ -24,43 +30,34 @@ int main() {
 
 ---
 
-## 🔍 Code Explanation (hello.c)
+## 🔍 Explanation (hello.c)
 
 ### 🔹 `#include <stdio.h>`
 
-* এটি একটি **header file**
-* এর পূর্ণরূপ 👉 **Standard Input Output**
-* `printf`, `scanf` এর মতো function use করার জন্য লাগে
+* Standard Input Output header
+* `printf`, `scanf` use করার জন্য লাগে
 
----
-
-### 🔹 `int main()`
+### 🔹 `main()`
 
 * Program এখান থেকে শুরু হয়
-* এটাকে **main function** বলা হয়
 
----
+### 🔹 `printf()`
 
-### 🔹 `printf("Hello World");`
-
-* Screen এ output দেখায়
-
----
+* Output দেখায়
 
 ### 🔹 `return 0;`
 
-* Program successfully শেষ হয়েছে বোঝায়
+* Program successfully শেষ
 
 ---
 
-## 🧾 File: `specialCharacter.c`
+# 🧾 File: `specialCharacter.c`
 
-```c
+```c id="f3l2dw"
 #include<stdio.h>
 
 int main(){
 
-    // Escape Sequences Example
     printf("New Line Example:\nHello\nWorld\n\n");
     printf("Tab Example:\tHello\tWorld\n\n");
 
@@ -79,26 +76,61 @@ int main(){
 
     printf("Percentage: 100%%\n\n");
 
-    // Format Specifiers
-    int a = 10;
-    float b = 5.5;
-    char c = 'A';
-    char str[] = "Hello";
-    double d = 10.12345;
-    long int li = 123456;
-    long long int lli = 1234567890;
+    return 0;
+}
+```
 
+---
+
+## 🔍 Explanation (Escape Sequences)
+
+### 🔹 Escape Sequence কি?
+
+👉 `\` দিয়ে শুরু হয় এমন special character
+👉 output control করার জন্য ব্যবহার হয়
+
+---
+
+### 🔹 Most Used
+
+| Escape | Meaning      |
+| ------ | ------------ |
+| `\n`   | New line     |
+| `\t`   | Tab space    |
+| `\\`   | Backslash    |
+| `\"`   | Double quote |
+| `\'`   | Single quote |
+
+---
+
+### 🔹 Others
+
+| Escape | Meaning      |
+| ------ | ------------ |
+| `\a`   | Alert        |
+| `\b`   | Backspace    |
+| `\r`   | Overwrite    |
+| `\f`   | Form feed    |
+| `\v`   | Vertical tab |
+| `\0`   | Stop output  |
+
+---
+
+# 🧾 File: `variable/hello_variable.c`
+
+```c id="q9x4bn"
+#include<stdio.h>
+
+int main(){
+    int a = 10;
+    char b = 'A';
+    float c = 5.5;
+    double d = 10.12345;
+    
     printf("Integer: %d\n", a);
-    printf("Float: %f\n", b);
-    printf("Character: %c\n", c);
-    printf("String: %s\n", str);
-    printf("Pointer: %p\n", &a);
-    printf("Unsigned: %u\n", a);
-    printf("Hexadecimal: %x\n", a);
-    printf("Octal: %o\n", a);
-    printf("Long: %ld\n", li);
+    printf("Character: %c\n", b);
+    printf("Float: %f\n", c);
     printf("Double: %lf\n", d);
-    printf("Long Long: %lld\n", lli);
 
     return 0;
 }
@@ -106,69 +138,91 @@ int main(){
 
 ---
 
-## 🔍 Code Explanation (specialCharacter.c)
+## 🔍 Variable Theory
 
-### 🔹 Escape Sequences
+### 🔹 Variable কি?
 
-* `\n` → new line
-* `\t` → tab space
-* `\\` → backslash
-* `\"` → double quote
-* `\'` → single quote
-* `\a` → alert sound
-* `\b` → backspace
-* `\r` → carriage return
-* `\f` → form feed
-* `\v` → vertical tab
-* `\0` → null character
+👉 Variable হলো একটি **container (box)**
+👉 যেখানে data store করা হয়
+
+---
+
+### 🔹 Declaration
+
+```id="u2m8kd"
+int a;
+float b;
+char c;
+```
+
+---
+
+### 🔹 Initialization
+
+```id="r5n1xp"
+int a = 10;
+```
+
+---
+
+### 🔹 Data Types
+
+| Type   | Example |
+| ------ | ------- |
+| int    | 10      |
+| float  | 5.5     |
+| double | 10.123  |
+| char   | 'A'     |
+
+---
+
+### 🔹 Naming Rules
+
+* number দিয়ে শুরু করা যাবে না ❌
+* space দেওয়া যাবে না ❌
+* `_` use করা যাবে ✅
 
 ---
 
 ### 🔹 Format Specifiers
 
-* `%d` → integer
-* `%f` → float
-* `%c` → character
-* `%s` → string
-* `%p` → pointer
-* `%u` → unsigned integer
-* `%x` → hexadecimal
-* `%o` → octal
-* `%ld` → long
-* `%lf` → double
-* `%lld` → long long
+| Specifier | Meaning |
+| --------- | ------- |
+| `%d`      | integer |
+| `%f`      | float   |
+| `%c`      | char    |
+| `%s`      | string  |
+| `%lf`     | double  |
 
 ---
 
-## ▶️ How to Run
+# ▶️ How to Run
 
-### 🔸 Step 1: Open Terminal / CMD
+### 🔸 Compile
 
-### 🔸 Step 2: Compile
-
-```
+```id="n4k7qs"
 gcc hello.c
 gcc specialCharacter.c
+gcc variable/hello_variable.c
 ```
 
 ---
 
-### 🔸 Step 3: Run
+### 🔸 Run
 
-```
+```id="v8t2yz"
 a.exe
 ```
 
 ---
 
-## 🧠 Summary
+# 🧠 Final Summary
 
-* `stdio.h` = Standard Input Output
-* `main()` = Program start point
-* `printf()` = Output দেখায়
-* Escape sequence = special output control
-* Format specifier = data print করার format
+* C program `main()` থেকে শুরু
+* `printf()` দিয়ে output
+* Escape sequence দিয়ে formatting
+* Variable দিয়ে data store
 
 ---
 
-✨ **Basic C Programming + Special Characters Completed!**
+✨ **C Programming Basics Completed 🚀**
