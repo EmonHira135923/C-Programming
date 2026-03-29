@@ -1,7 +1,6 @@
-````markdown
 # 📘 Run C Programming
 
-> 🎯 Goal: C Programming এর Basic Concepts (Hello World, Escape Sequences, Variables, Data Types) এবং User Input কিভাবে নেওয়া হয় তা clearভাবে শেখা
+> 🎯 Goal: C Programming এর Basic Concepts (Hello World, Escape Sequences, Variables, Data Types, User Input, Naming Rules, Data Type Limitations) clearভাবে শেখা
 
 ---
 
@@ -17,6 +16,10 @@ Run C Programming/
 │   └── helloDataTypes.c
 ├── input/                  # How to Take Input in C
 │   └── takeInput.c
+├── namingRules/
+│   └── namingRules.c
+├── dataTypeLimitations/
+│   └── dataTypeLimit.c
 └── README.md
 ````
 
@@ -153,8 +156,6 @@ int main(){
 #include<stdio.h>
 
 int main(){
-
-    // scanf is used to take input from user
     int a;
     printf("Enter an integer: ");
     scanf("%d", &a);
@@ -175,15 +176,11 @@ int main(){
 }
 ```
 
-### 🔍 Explanation
+### 🔍 Explanation (User Input)
 
-#### 🔹 `scanf()`
-
-* User input নেওয়ার জন্য ব্যবহার হয়
+* `scanf()` → user input নেওয়ার জন্য
 * Syntax: `scanf("format", &variable);`
 * `&` → variable এর **address** pass করতে হয়
-
-#### 🔹 Example
 
 | Variable Type | Format Specifier |
 | ------------- | ---------------- |
@@ -192,16 +189,75 @@ int main(){
 | float         | `%f`             |
 | double        | `%lf`            |
 
-#### 🔹 Notes
-
-* `scanf(" %c", &b);` → space before `%c` ব্যবহার করা হয়েছে leftover newline remove করার জন্য
+* Notes: `scanf(" %c", &b);` → leftover newline remove
 * `%0.2f` → float value 2 decimal পর্যন্ত দেখায়
 
 ---
 
-# ▶️ How to Run All Programs
+# 🧾 File: `namingRules/namingRules.c`
 
-### 🔹 Compile
+```c
+#include<stdio.h>
+
+int main(){
+    int age = 25;
+    int _salary = 5000;
+    int total_score1 = 100;
+
+    printf("Age: %d\n", age);
+    printf("Salary: %d\n", _salary);
+    printf("Total Score: %d\n", total_score1);
+
+    return 0;
+}
+```
+
+### 🔍 Rules of Naming Variables in C
+
+1. Variable name **letters বা underscore `_` দিয়ে শুরু হবে**
+2. Variable name **letters, digits, underscore** থাকতে পারবে
+3. Variable name এ **spaces, special characters, keywords** ব্যবহার করা যাবে না
+4. Variable name **case-sensitive** (e.g., `a` ≠ `A`)
+5. Descriptive name ব্যবহার করা ভালো (example: `totalScore`, `first_name`)
+
+---
+
+# 🧾 File: `dataTypeLimitations/dataTypeLimit.c`
+
+```c
+#include<stdio.h>
+
+int main(){
+    int a = 2147483647;   // max int
+    int b = 2147483648;   // overflow
+    float c = 3.4028235e38; // max float
+    double d = 1.7976931348623157e308; // max double
+
+    printf("Int Max: %d\n", a);
+    printf("Int Overflow Example: %d\n", b);
+    printf("Float Max: %f\n", c);
+    printf("Double Max: %lf\n", d);
+
+    return 0;
+}
+```
+
+### 🔍 Data Types Limitation in C
+
+* Integer overflow → value range exceed করলে garbage value বা overflow হয়
+* Float/Double limitation → precision limited, very big number approximate হবে
+* Data Type Size → variable কত value store করতে পারবে তা নির্ধারণ করে
+
+| Data Type | Range (approx)                       |
+| --------- | ------------------------------------ |
+| int       | -2,147,483,648 to 2,147,483,647      |
+| float     | ±3.4e38 (7 decimal digits precision) |
+| double    | ±1.7e308 (15 decimal digits)         |
+| char      | -128 to 127                          |
+
+---
+
+# ▶️ How to Compile & Run
 
 ```bash
 gcc hello.c
@@ -209,11 +265,9 @@ gcc specialCharacter.c
 gcc variable/hello_variable.c
 gcc dataTypes/helloDataTypes.c
 gcc input/takeInput.c
-```
+gcc namingRules/namingRules.c
+gcc dataTypeLimitations/dataTypeLimit.c
 
-### 🔹 Run
-
-```bash
 a.exe
 ```
 
@@ -221,21 +275,15 @@ a.exe
 
 # 🧠 Final Summary
 
-* C program execution `main()` থেকে শুরু
-* `printf()` দিয়ে output দেখানো হয়
+* `main()` → program execution শুরু
+* `printf()` → output দেখায়
+* `scanf()` → user input নেওয়া
 * Escape sequences → formatting control
 * Variable → data store
 * Data Type → variable এর type define করে
-* `scanf()` → user input নেওয়া
-* Format specifier match করা অবশ্যই গুরুত্বপূর্ণ
+* Naming Rules → variable name define করার নিয়ম
+* Data Type Limitation → variable কত বড় value store করতে পারবে তা নির্ধারণ করে
 
 ---
 
-✨ **C Programming Basics + Escape Sequences + Variables + Data Types + User Input Completed ✅ 🚀**
-
-```
-
----
-
-চাও আমি এই README.md কে **Notion toggle ও color-coded blocks সহ আরও সুন্দর করে** বানিয়ে দিই, যাতে পড়তে সহজ হয় এবং সকল code collapsible হয়?
-```
+✨ **C Programming Basics + Escape Sequences + Variables + Data Types + User Input + Naming Rules + Data Type Limitations Completed ✅ 🚀**
