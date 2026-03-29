@@ -1,27 +1,30 @@
+````markdown
 # 📘 Run C Programming
 
-> 🎯 Goal: C Programming এর Basic Concepts (Hello World, Escape Sequences, Variables, Data Types) clearভাবে শিখা
+> 🎯 Goal: C Programming এর Basic Concepts (Hello World, Escape Sequences, Variables, Data Types) এবং User Input কিভাবে নেওয়া হয় তা clearভাবে শেখা
 
 ---
 
 ## 📁 Project Structure
 
-```id="ps8x2a"
+```text
 Run C Programming/
- ├── hello.c
- ├── specialCharacter.c
- ├── variable/
- │    └── hello_variable.c
- ├── dataTypes/
- │    └── helloDataTypes.c
- └── README.md
-```
+├── hello.c
+├── specialCharacter.c
+├── variable/
+│   └── hello_variable.c
+├── dataTypes/
+│   └── helloDataTypes.c
+├── input/                  # How to Take Input in C
+│   └── takeInput.c
+└── README.md
+````
 
 ---
 
 # 🧾 File: `hello.c`
 
-```c id="c1k9pz"
+```c
 #include <stdio.h>
 
 int main() {
@@ -41,7 +44,7 @@ int main() {
 
 # 🧾 File: `specialCharacter.c`
 
-```c id="f3l2dw"
+```c
 #include<stdio.h>
 
 int main(){
@@ -84,7 +87,7 @@ int main(){
 
 # 🧾 File: `variable/hello_variable.c`
 
-```c id="q9x4bn"
+```c
 #include<stdio.h>
 
 int main(){
@@ -92,7 +95,7 @@ int main(){
     char b = 'A';
     float c = 5.5;
     double d = 10.12345;
-    
+
     printf("Integer: %d\n", a);
     printf("Character: %c\n", b);
     printf("Float: %f\n", c);
@@ -114,7 +117,7 @@ int main(){
 
 # 🧾 File: `dataTypes/helloDataTypes.c`
 
-```c id="dt1"
+```c
 #include<stdio.h>
 
 int main(){
@@ -144,20 +147,73 @@ int main(){
 
 ---
 
-# ▶️ How to Run
+# 🧾 File: `input/takeInput.c`
+
+```c
+#include<stdio.h>
+
+int main(){
+
+    // scanf is used to take input from user
+    int a;
+    printf("Enter an integer: ");
+    scanf("%d", &a);
+
+    char b;
+    printf("Enter a character: ");
+    scanf(" %c", &b);
+
+    float c;
+    printf("Enter a float: ");
+    scanf(" %f", &c);
+
+    printf("You Entered Integer: %d\n", a);
+    printf("You Entered Character: %c\n", b);
+    printf("You Entered Float: %0.2f\n", c);
+
+    return 0;
+}
+```
+
+### 🔍 Explanation
+
+#### 🔹 `scanf()`
+
+* User input নেওয়ার জন্য ব্যবহার হয়
+* Syntax: `scanf("format", &variable);`
+* `&` → variable এর **address** pass করতে হয়
+
+#### 🔹 Example
+
+| Variable Type | Format Specifier |
+| ------------- | ---------------- |
+| int           | `%d`             |
+| char          | `%c`             |
+| float         | `%f`             |
+| double        | `%lf`            |
+
+#### 🔹 Notes
+
+* `scanf(" %c", &b);` → space before `%c` ব্যবহার করা হয়েছে leftover newline remove করার জন্য
+* `%0.2f` → float value 2 decimal পর্যন্ত দেখায়
+
+---
+
+# ▶️ How to Run All Programs
 
 ### 🔹 Compile
 
-```id="compile"
+```bash
 gcc hello.c
 gcc specialCharacter.c
 gcc variable/hello_variable.c
 gcc dataTypes/helloDataTypes.c
+gcc input/takeInput.c
 ```
 
 ### 🔹 Run
 
-```id="run"
+```bash
 a.exe
 ```
 
@@ -170,7 +226,16 @@ a.exe
 * Escape sequences → formatting control
 * Variable → data store
 * Data Type → variable এর type define করে
+* `scanf()` → user input নেওয়া
+* Format specifier match করা অবশ্যই গুরুত্বপূর্ণ
 
 ---
 
-✨ **C Programming Basics + Escape + Variables + Data Types Completed 🚀**
+✨ **C Programming Basics + Escape Sequences + Variables + Data Types + User Input Completed ✅ 🚀**
+
+```
+
+---
+
+চাও আমি এই README.md কে **Notion toggle ও color-coded blocks সহ আরও সুন্দর করে** বানিয়ে দিই, যাতে পড়তে সহজ হয় এবং সকল code collapsible হয়?
+```
