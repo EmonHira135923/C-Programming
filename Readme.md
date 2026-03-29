@@ -1,6 +1,6 @@
 # 📘 Run C Programming
 
-> 🎯 Goal: Basic C Programming (Hello World, Escape Sequences, Variables) clearভাবে শিখা
+> 🎯 Goal: C Programming এর Basic Concepts (Hello World, Escape Sequences, Variables, Data Types) clearভাবে শিখা
 
 ---
 
@@ -12,6 +12,8 @@ Run C Programming/
  ├── specialCharacter.c
  ├── variable/
  │    └── hello_variable.c
+ ├── dataTypes/
+ │    └── helloDataTypes.c
  └── README.md
 ```
 
@@ -28,26 +30,12 @@ int main() {
 }
 ```
 
----
+### 🔍 Explanation
 
-## 🔍 Explanation (hello.c)
-
-### 🔹 `#include <stdio.h>`
-
-* Standard Input Output header
-* `printf`, `scanf` use করার জন্য লাগে
-
-### 🔹 `main()`
-
-* Program এখান থেকে শুরু হয়
-
-### 🔹 `printf()`
-
-* Output দেখায়
-
-### 🔹 `return 0;`
-
-* Program successfully শেষ
+* `#include <stdio.h>` → Standard Input Output header
+* `main()` → Program execution শুরু
+* `printf()` → Output দেখায়
+* `return 0;` → Program successfully শেষ
 
 ---
 
@@ -57,7 +45,6 @@ int main() {
 #include<stdio.h>
 
 int main(){
-
     printf("New Line Example:\nHello\nWorld\n\n");
     printf("Tab Example:\tHello\tWorld\n\n");
 
@@ -66,32 +53,18 @@ int main(){
     printf("Single Quote: \'A\'\n\n");
 
     printf("Alert Sound: \a\n");
-
     printf("Backspace: ABC\bD\n");
     printf("Carriage Return: Hello\rWorld\n");
     printf("Form Feed: Hello\fWorld\n");
     printf("Vertical Tab: Hello\vWorld\n");
-
     printf("Null Character: Hello\0World\n\n");
-
     printf("Percentage: 100%%\n\n");
 
     return 0;
 }
 ```
 
----
-
-## 🔍 Explanation (Escape Sequences)
-
-### 🔹 Escape Sequence কি?
-
-👉 `\` দিয়ে শুরু হয় এমন special character
-👉 output control করার জন্য ব্যবহার হয়
-
----
-
-### 🔹 Most Used
+### 🔍 Explanation (Escape Sequences)
 
 | Escape | Meaning      |
 | ------ | ------------ |
@@ -100,13 +73,6 @@ int main(){
 | `\\`   | Backslash    |
 | `\"`   | Double quote |
 | `\'`   | Single quote |
-
----
-
-### 🔹 Others
-
-| Escape | Meaning      |
-| ------ | ------------ |
 | `\a`   | Alert        |
 | `\b`   | Backspace    |
 | `\r`   | Overwrite    |
@@ -136,81 +102,62 @@ int main(){
 }
 ```
 
+### 🔍 Variable Theory
+
+* Variable = data store করার **container**
+* Declaration: `data_type variable_name;`
+* Initialization: `data_type variable_name = value;`
+* Naming Rules: number দিয়ে শুরু ❌, space ❌, `_` ✅
+* Format Specifiers: `%d`, `%f`, `%c`, `%s`, `%lf`
+
 ---
 
-## 🔍 Variable Theory
+# 🧾 File: `dataTypes/helloDataTypes.c`
 
-### 🔹 Variable কি?
+```c id="dt1"
+#include<stdio.h>
 
-👉 Variable হলো একটি **container (box)**
-👉 যেখানে data store করা হয়
+int main(){
+    int a = 10;
+    char b = 'A';
+    float c = 5.250;
 
----
+    printf("Integer : %d\n", a);
+    printf("Character : %c\n", b);
+    printf("Float : %f\n", c);
 
-### 🔹 Declaration
-
-```id="u2m8kd"
-int a;
-float b;
-char c;
+    return 0;
+}
 ```
 
----
+### 🔍 Data Types Theory
 
-### 🔹 Initialization
+| Data Type | Size (approx) | Example        | Description      |
+| --------- | ------------- | -------------- | ---------------- |
+| int       | 4 bytes       | `int a = 10;`  | Integer number   |
+| float     | 4 bytes       | `float c=5.5;` | Decimal number   |
+| double    | 8 bytes       | `double d;`    | Big decimal      |
+| char      | 1 byte        | `char b='A';`  | Single character |
 
-```id="r5n1xp"
-int a = 10;
-```
-
----
-
-### 🔹 Data Types
-
-| Type   | Example |
-| ------ | ------- |
-| int    | 10      |
-| float  | 5.5     |
-| double | 10.123  |
-| char   | 'A'     |
-
----
-
-### 🔹 Naming Rules
-
-* number দিয়ে শুরু করা যাবে না ❌
-* space দেওয়া যাবে না ❌
-* `_` use করা যাবে ✅
-
----
-
-### 🔹 Format Specifiers
-
-| Specifier | Meaning |
-| --------- | ------- |
-| `%d`      | integer |
-| `%f`      | float   |
-| `%c`      | char    |
-| `%s`      | string  |
-| `%lf`     | double  |
+* Data Type → Variable কত ধরনের value store করবে তা define করে
+* Format Specifier → Data print করার format `%d, %f, %lf, %c`
 
 ---
 
 # ▶️ How to Run
 
-### 🔸 Compile
+### 🔹 Compile
 
-```id="n4k7qs"
+```id="compile"
 gcc hello.c
 gcc specialCharacter.c
 gcc variable/hello_variable.c
+gcc dataTypes/helloDataTypes.c
 ```
 
----
+### 🔹 Run
 
-### 🔸 Run
-
-```id="v8t2yz"
+```id="run"
 a.exe
 ```
 
@@ -218,11 +165,12 @@ a.exe
 
 # 🧠 Final Summary
 
-* C program `main()` থেকে শুরু
-* `printf()` দিয়ে output
-* Escape sequence দিয়ে formatting
-* Variable দিয়ে data store
+* C program execution `main()` থেকে শুরু
+* `printf()` দিয়ে output দেখানো হয়
+* Escape sequences → formatting control
+* Variable → data store
+* Data Type → variable এর type define করে
 
 ---
 
-✨ **C Programming Basics Completed 🚀**
+✨ **C Programming Basics + Escape + Variables + Data Types Completed 🚀**
