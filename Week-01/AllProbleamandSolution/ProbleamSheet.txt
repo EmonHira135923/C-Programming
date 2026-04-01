@@ -1,0 +1,4 @@
+Week ---> 01
+https://docs.google.com/document/d/19-yrrckK55JFnhlsc8OWG1LouTJ-DUkW2RUsKWIOT0c/edit?tab=t.0 ----> M-01
+https://www.hackerrank.com/module-3-5-practice-a-introduction-to-c-programming-a ---> M-02
+https://www.hackerrank.com/assignment-01-a-introduction-to-c-programming-a-batch-05 --> assignment-01
